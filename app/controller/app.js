@@ -3,6 +3,9 @@
 const Controller = require('egg').Controller;
 
 class AppController extends Controller {
+  async iosDownload() {
+    await this.ctx.render('ios/index.html', {});
+  }
   async checkVersion() {
     const { ctx } = this;
     ctx.body = {

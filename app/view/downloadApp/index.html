@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum=1.0,user-scalable=no">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <title>文什云MES</title>
+    <style>
+    body,
+    html {
+        margin: 0;
+        padding: 0;
+        font-size: 10px;
+    }
+    ul,li{
+      padding: 0;
+    }
+    .titleimg {
+        width: 100%;
+        height: auto;
+    }
+
+    .msg {
+        padding-left: 2rem;
+        font-size: 1.6rem;
+        color: #3185ff;
+    }
+
+    .moreimg {
+        width: 80%;
+        display: block;
+        margin: 2rem auto;
+        border: none;
+    }
+
+    #androidbrowser,
+    #iosbrowser {
+        width: 75%;
+        display: block;
+        border: none;
+        margin: 1rem auto;
+        display: none;
+    }
+    .wechatview,
+    .nonwechat{
+      display: none;
+    }
+    .ios .btn,
+    .android .btn{
+      background: #3185ff;
+      color: #fff;
+      border: none;
+      outline: none;
+      padding: 1rem 3rem;
+      display: block;
+      font-size: 1.6rem;
+      border-radius: 2rem;
+      margin: 2rem auto;
+      font-weight: 340;
+    }
+    #ios-content{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="wechatview">
+      <img class="titleimg" src="./images/title.png" alt="">
+      <h1 class="msg">
+        第一步：点击微信右上角按钮
+      </h1>
+      <img class="moreimg" src="./images/more.png" alt="">
+      <h1 class="msg">
+        第二步：点击“在浏览器中打开”
+      </h1>
+      <img id="androidbrowser" src="./images/browser.png" alt="">
+      <img id="iosbrowser" src="./images/safari.png" alt="">
+    </div>
+    <div class="nonwechat">
+      <div class="android" style="display: none;">
+        <img src="./images/androiddown.jpg" style="width: 100%;" alt="">
+        <button class="btn" onclick="downandroid()">立即安装</button>
+      </div>
+      <div class="ios">
+        <div id="ios-content" class="iSlider-effect"></div>
+      </div>
+    </div>
+    <script src="./js/islider.js"></script>
+    <script src="./js/islider_desktop.js"></script>
+    <script>
+    var androidurl = 'https://gitee.com/vsdata/yes-ios-app/raw/master/android/android-release.apk',
+        iosurl = 'itms-services://?action=download-manifest&url=https://gitee.com/vsdata/yes-ios-app/raw/master/manifest.plist';
+
+    function downandroid(){
+      window.open(androidurl)
+    }
+
+    function downios(){
+      window.location = iosurl
+      // window.open(iosurl)
+    }
+    var util = {
+        ua: navigator.userAgent,
+        isWeiXin: function isWeiXin() {
+            if (this.ua.match(/MicroMessenger/i) == 'MicroMessenger') {
+                return true;
+            } else {
+                return false;
+            }
+        },
+        isAndroid: function() {
+            return this.ua.indexOf('Android') > -1 || this.ua.indexOf('Adr') > -1;
+        },
+        isIos: function() {
+            return !!this.ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
+        }
+    }
+    // useragent 判断
+    var iswechat = util.isWeiXin(),
+        isandroid = util.isAndroid(),
+        isios = util.isIos;
+    //  元素获取
+    var wechatview = document.getElementsByClassName('wechatview')[0]
+    var nonwechat = document.getElementsByClassName('nonwechat')[0]
+    var androidbrowser = document.getElementById('androidbrowser')
+    var iosbrowser = document.getElementById('iosbrowser')
+    var android = document.getElementsByClassName('android')[0]
+    var ios = document.getElementsByClassName('ios')[0]
+
+    // 视图切换
+    if (iswechat) {
+        wechatview.style.display = 'block'
+
+        if (isandroid) {
+            androidbrowser.style.display = 'block'
+            iosbrowser.style.display = 'none'
+        } else if (isios) {
+            // ios
+            androidbrowser.style.display = 'none'
+            iosbrowser.style.display = 'block'
+        }
+
+    } else {
+        nonwechat.style.display = 'block'
+        if(isandroid){
+          android.style.display = 'block'
+        } else if (isios) {
+          ios.style.display = 'block'
+
+          var domList = [{
+              'height' : '100%',
+              'width' : '100%',
+              'content' : '<div><img src="./images/iosdown.jpg" style="width: 100%;" alt=""><button class="btn" data-role="down">立即安装</button><div>'
+          },{
+              'height' : '100%',
+              'width' : '100%',
+              'content' : '<div><img src="./images/iosstep2.jpg" style="width: 100%;" alt=""><button class="btn">下一步</button><div>'
+          },{
+              'height' : '100%',
+              'width' : '100%',
+              'content' : '<div><img src="./images/iosstep31.jpg" style="width: 100%;" alt=""><button class="btn">下一步</button><div>'
+          },{
+              'height' : '100%',
+              'width' : '100%',
+              'content' : '<div><img src="./images/iosstep32.jpg" style="width: 100%;" alt=""><button class="btn" data-role="trust">立即信任</button><div>'
+          }];
+
+
+        var iosContent = document.getElementById("ios-content");
+
+        iosContent.style.height = document.documentElement.clientHeight + 'px';
+
+        //滚动dom
+        var islider4 = new iSlider({
+            data: domList,
+            dom: iosContent,
+            type: 'dom',
+            animateType: 'rotate',
+            isAutoplay: false,
+            isLooping: false,
+        });
+        islider4.bindMouse();
+
+        iosContent.addEventListener('touchstart', function (e) {
+          var target = e.target
+          if (target.tagName === 'BUTTON') {
+            if (target.getAttribute('data-role') == 'down') {
+              downios()
+            } else if (target.getAttribute('data-role') == 'trust') {
+              window.location = 'https://gitee.com/vsdata/yes-ios-app/raw/master/wsdataimes.mobileprovision'
+            }
+            islider4.next()
+          }
+        })
+      }
+    }
+    </script>
+</body>
+
+</html>

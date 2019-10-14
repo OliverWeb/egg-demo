@@ -9,6 +9,8 @@ module.exports = app => {
   router.get('/', controller.home.index);
   router.get('/app', controller.home.uniapp);
   router.post('/test', controller.home.test);
+  // ios 下载
+  router.get('/app/download', controller.app.iosDownload);
   // app更新
   router.get('/app/checkVersion', controller.app.checkVersion);
   // router.get('/app/checkVersion', controller.home.uniapp);

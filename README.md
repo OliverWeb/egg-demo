@@ -27,3 +27,8 @@ http://localhost:7004/swagger-ui.html
 
 下载
 http://localhost:7004/public/camsapp/app-release.apk
+http://47.104.88.119:7004/public/camsapp/app-release.apk
+http://47.104.88.119:7004/public/camsapp/downloadApp
+http://47.104.88.119:7004/public/app/index.html  
+http://localhost:7004/public/camsapp/downloadApp
+http://47.104.88.119:7004/app/download

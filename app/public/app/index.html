@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum=1.0,user-scalable=no">
+	<meta name="format-detection" content="telephone=no, email=no">
+	<title>万腾MES</title>
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			font-size: 10px;
+		}
+		
+		ul, li {
+			padding: 0;
+		}
+		
+		.titleimg {
+			width: 100%;
+			height: auto;
+		}
+		
+		.msg {
+			padding-left: 2rem;
+			font-size: 1.6rem;
+			color: #3185ff;
+		}
+		
+		.moreimg {
+			width: 80%;
+			display: block;
+			margin: 2rem auto;
+			border: none;
+		}
+		
+		#androidbrowser,
+		#iosbrowser {
+			width: 75%;
+			border: none;
+			margin: 1rem auto;
+			display: none;
+		}
+		
+		.wechatview,
+		.nonwechat {
+		}
+		
+		.ios .btn,
+		.android .btn {
+			background: #3185ff;
+			color: #fff;
+			border: none;
+			outline: none;
+			padding: 1rem 3rem;
+			display: block;
+			font-size: 1.6rem;
+			border-radius: 2rem;
+			margin: 2rem auto;
+			font-weight: 340;
+		}
+		
+		#ios-content {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			position: relative;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body>
+<div class="nonwechat">
+	<div class="android" style="margin-top: 90%">
+		<button class="btn" onclick="downandroid()">立即安装</button>
+		<div style="text-align: center;font-size: 12px;color: #999999">点击下载按钮，进行下载安装。（若当前没有响应，请使用浏览器打开。）</div>
+	</div>
+	<div class="ios" style="margin-top: 90%">
+		<button class="btn" id="iosdown" onclick="downios()">立即安装</button>
+		<div style="text-align: center;font-size: 12px;color: #999999">仅用于IOS系统，跳转到应用苹果商店下载</div>
+	</div>
+</div>
+<script>
+var androidurl = 'https://www.vtstar.net/download/app-phone.apk',
+  iosurl = 'https://apps.apple.com/us/app/vt-mes/id1481845731?l=zh&ls=1'
+
+function downandroid() {
+  window.open(androidurl)
+}
+
+function downios() {
+  // window.location = iosurl
+  window.open(iosurl)
+}
+
+var util = {
+  ua: navigator.userAgent,
+  isWeiXin: function isWeiXin() {
+    if (this.ua.match(/MicroMessenger/i) == 'MicroMessenger') {
+      return true
+    } else {
+      return false
+    }
+  },
+  isAndroid: function() {
+    return this.ua.indexOf('Android') > -1 || this.ua.indexOf('Adr') > -1
+  },
+  isIos: function() {
+    return this.ua.indexOf('Mac OS X') > -1 || this.ua.indexOf('iPhone') > -1
+  }
+}
+// useragent 判断
+var iswechat = util.isWeiXin(),
+  isandroid = util.isAndroid(),
+  isios = util.isIos()
+//  元素获取
+var wechatview = document.getElementsByClassName('wechatview')[0]
+var nonwechat = document.getElementsByClassName('nonwechat')[0]
+var androidbrowser = document.getElementById('androidbrowser')
+var iosbrowser = document.getElementById('iosbrowser')
+var iosbrowser = document.getElementById('iosdown')
+var android = document.getElementsByClassName('android')[0]
+var ios = document.getElementsByClassName('ios')[0]
+if (isandroid || !isios) {
+  if (iswechat) {
+    android.style.display = 'block'
+    ios.style.display = 'none'
+    window.location.href = androidurl
+  } else {
+    android.style.display = 'none'
+    ios.style.display = 'none'
+    window.location.href = androidurl
+  }
+} else {
+  android.style.display = 'none'
+  ios.style.display = 'none'
+  window.location.href = iosurl
+}
+</script>
+</body>
+
+</html>

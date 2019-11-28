@@ -84,22 +84,24 @@ module.exports = appInfo => {
   //   whitelist: [ '.png' ], // 覆盖整个白名单，只允许上传 '.png' 格式
   // }
   /* =================== 跨域 start=================== */
-  config.security = {
-    csrf: {
-      enable: false,
-      ignoreJSON: true,
-    },
-    domainWhiteList: [
-      'http://127.0.0.1:8888',
-      'http://localhost:9529',
-      'http://10.100.172.6:9107',
-      'http://localhost:9527',
-      'http://localhost:9526',
-    ],
-  };
+  // config.security = {
+  //   csrf: {
+  //     enable: false,
+  //     ignoreJSON: true,
+  //   },
+  //   domainWhiteList: [
+  //     'http://127.0.0.1:8888',
+  //     'http://localhost:9529',
+  //     'http://10.100.172.6:9107',
+  //     'http://localhost:9527',
+  //     'http://localhost:9526',
+  //     'http://localhost:8080',
+  //   ],
+  // };
   config.cors = {
-    origin: 'http://localhost:9526',
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+    // origin: 'http://localhost:9526',
+    origin: '*',
+    // allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
     credentials: true,
   };
   return {
@@ -110,4 +112,5 @@ module.exports = appInfo => {
 // 同源策略 https://segmentfault.com/q/1010000015791317
 // https://blog.csdn.net/yanyang1116/article/details/78901600
 
-// ios  https://www.jianshu.com/p/e5ac7b05750a
+// withCredentials的情况下，后端要设置Access-Control-Allow-Origin为你的源地址，例如http://localhost:8080，不能是*，而且还要设置header('Access-Control-Allow-Credentials: true');
+

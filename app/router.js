@@ -8,6 +8,7 @@ module.exports = app => {
   const { router, controller } = app;
   router.get('/', controller.home.index);
   router.get('/app', controller.home.uniapp);
+  router.get('/demo', controller.home.demo);
   router.post('/test', controller.home.test);
   // ios 下载
   router.get('/app/download', controller.app.iosDownload);

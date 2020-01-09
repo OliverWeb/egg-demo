@@ -8,7 +8,7 @@
 [swagger搭建](https://blog.csdn.net/qq_39081974/article/details/90717766)
 [访问地址](http://127.0.0.1:7001/public/swagger/index.html)
 [](https://github.com/Ysj291823/egg-swagger-doc)
- 
+
 http://47.104.88.119:7003/
 
 [部署](https://blog.csdn.net/clearlxj/article/details/88708709)
@@ -16,11 +16,11 @@ http://47.104.88.119:7003/
 "sit": "egg-scripts start --port=7001 --daemon --title=egg-server-loan --env=test",
 "start": "NODE_ENV=production egg-scripts start --port=7001 --daemon --title=egg-server-loan --env=prod",
   "stop": "egg-scripts stop --title=egg-server-loan",
-  
-  
-  
-  
-  
+
+
+
+
+
 
 http://localhost:7004/swagger-ui.html
 http://47.104.64.155:7004/swagger-ui.html
@@ -43,4 +43,9 @@ http://47.104.64.155/
 
 wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
 rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
-[jenkins](https://juejin.im/post/5b371678f265da599f68dfa2)
+[文件，服务重启需要配置一下](http://file.yuntuxianzhi.com/file/)
+[jenkins 安装](https://juejin.im/post/5b371678f265da599f68dfa2)
+[docker-compose命令](https://www.cnblogs.com/linjiqin/p/8849432.html)
+[docker服务重启](https://blog.csdn.net/easternunbeaten/article/details/80463837)
+[Node.js技术栈](https://www.nodejs.red/#/devops/docker-build-nodejs-smooth-program)
+

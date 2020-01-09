@@ -1,5 +1,4 @@
-[egg]: https://eggjs.org
-
+jenkins部署
 * 控制台颜色  npm i colors-console -D
 [控制台颜色](https://blog.csdn.net/guang_s/article/details/90380581)
 
@@ -31,7 +30,7 @@ http://localhost:7004/public/camsapp/app-release.apk
 [油侯插件](http://localhost:7004/public/js/swagger_1.0.1.js)
 http://47.104.64.155:7004/public/camsapp/app-release.apk
 http://47.104.64.155:7004/public/camsapp/downloadApp
-http://47.104.64.155:7004/public/app/index.html  
+http://47.104.64.155:7004/public/app/index.html
 http://47.104.64.155:7004/public/camsapp/downloadApp/demo.pdf
 http://47.104.64.155:7004/public/camsapp/js/swagger_1.0.1.js
 http://47.104.64.155:7004/app/download

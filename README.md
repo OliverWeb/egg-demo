@@ -1,4 +1,11 @@
-jenkins部署1
+```
+http://47.104.64.155:7004/
+http://47.104.64.155:7004/public/
+http://file.yuntuxianzhi.com
+http://47.104.64.155:7004/swagger-ui.html
+```
+
+
 * 控制台颜色  npm i colors-console -D
 [控制台颜色](https://blog.csdn.net/guang_s/article/details/90380581)
 

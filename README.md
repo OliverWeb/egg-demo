@@ -1,4 +1,4 @@
-jenkins部署
+jenkins部署1
 * 控制台颜色  npm i colors-console -D
 [控制台颜色](https://blog.csdn.net/guang_s/article/details/90380581)
 
@@ -48,3 +48,10 @@ rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
 [docker服务重启](https://blog.csdn.net/easternunbeaten/article/details/80463837)
 [Node.js技术栈](https://www.nodejs.red/#/devops/docker-build-nodejs-smooth-program)
 
+
+
+### docker 执行命令
+[参考地址](https://blog.csdn.net/weixin_40898389/article/details/82844225)
+```bash
+docker exec -it jenkins /bin/bash
+```
